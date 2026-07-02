@@ -178,10 +178,6 @@ http://localhost:5173
 * Asset depreciation tracking
 * Automated testing
 
-## Notes
+## Note
 
 Sensitive information such as database credentials and JWT secrets have been replaced with placeholder values. Configure your own credentials before running the application locally.
-
-## License
-
-This project is released for educational purposes.

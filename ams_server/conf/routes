@@ -1,0 +1,50 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# An example controller showing a sample home page
+#GET     /                           controllers.HomeController.index()
+
+# Department Routes
+POST          /api/departments                           controllers.DepartmentController.create(request: Request)
+GET           /api/departments                           controllers.DepartmentController.findAll()
+GET           /api/departments/:id                       controllers.DepartmentController.findById(id: Long)
+PUT           /api/departments/:id                       controllers.DepartmentController.update(id: Long, request: Request)
+DELETE        /api/departments/:id                       controllers.DepartmentController.delete(id: Long)
+
+# User Routes
+POST          /api/users                                 controllers.UserController.create(request: Request)
+GET           /api/users                                 controllers.UserController.findAll(request: Request)
+GET           /api/users/:id                             controllers.UserController.findById(id: Long, request: Request)
+PUT           /api/users/:id                             controllers.UserController.update(id: Long, request: Request)
+DELETE        /api/users/:id                             controllers.UserController.delete(id: Long)
+
+# Asset Routes
+GET           /api/assets                                controllers.AssetController.findAll(request: Request)
+GET           /api/assets/:id                            controllers.AssetController.findById(id: Long, request: Request)
+POST          /api/assets                                controllers.AssetController.create(request: Request)
+PUT           /api/assets/:id                            controllers.AssetController.update(id: Long, request: Request)
+DELETE        /api/assets/:id                            controllers.AssetController.delete(id: Long)
+
+# Asset Assignment Routes
+GET           /api/assignments                           controllers.AssetAssignmentController.findAll()
+GET           /api/assignments/active                    controllers.AssetAssignmentController.findCurrentlyAssigned()
+GET           /api/assignments/my                        controllers.AssetAssignmentController.findMyAssignments(request: Request)
+GET           /api/assignments/:id                       controllers.AssetAssignmentController.findById(id: Long, request: Request)
+POST          /api/assignments                           controllers.AssetAssignmentController.assign(request: Request)
+POST          /api/assignments/:id/return                controllers.AssetAssignmentController.returnAsset(id: Long, request: Request)
+
+
+# Maintenance Routes
+POST          /api/maintenance                           controllers.MaintenanceRequestController.create(request: Request)
+GET           /api/maintenance                           controllers.MaintenanceRequestController.findAll(request: Request)
+GET           /api/maintenance/my                        controllers.MaintenanceRequestController.findByUserId(request: Request)
+GET           /api/maintenance/:id                       controllers.MaintenanceRequestController.findById(id: Long, request: Request)
+PUT           /api/maintenance/:requestId/approve        controllers.MaintenanceRequestController.approve(request: Request, requestId: Long)
+PUT           /api/maintenance/:requestId/reject         controllers.MaintenanceRequestController.reject(request: Request, requestId: Long)
+PUT           /api/maintenance/:requestId/resolve        controllers.MaintenanceRequestController.resolve(request: Request, requestId: Long)
+
+POST          /api/auth/login                            controllers.AuthController.login(request: Request)
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file                              controllers.Assets.versioned(path="/public", file: Asset)

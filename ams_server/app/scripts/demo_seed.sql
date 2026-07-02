@@ -1,0 +1,377 @@
+-- SET FOREIGN_KEY_CHECKS = 0;
+--
+-- DELETE FROM maintenance_requests;
+-- DELETE FROM asset_assignments;
+-- DELETE FROM assets;
+-- DELETE FROM users;
+-- DELETE FROM departments;
+--
+-- ALTER TABLE departments AUTO_INCREMENT = 1;
+-- ALTER TABLE users AUTO_INCREMENT = 1;
+--
+-- SET FOREIGN_KEY_CHECKS = 1;
+--
+-- INSERT INTO departments
+-- (code, name, description, is_active, created_at, updated_at)
+-- VALUES
+--     ('IT',  'Information Technology', 'Handles IT infrastructure', TRUE, NOW(), NOW()),
+--     ('HR',  'Human Resources',        'Handles employee management', TRUE, NOW(), NOW()),
+--     ('FIN', 'Finance',                'Handles finance operations', TRUE, NOW(), NOW()),
+--     ('OPS', 'Operations',             'Handles daily operations', TRUE, NOW(), NOW());
+--
+-- INSERT INTO users
+-- (username,email,password,role,department_id,is_active,created_at,updated_at)
+-- VALUES
+--
+-- -- =========================
+-- -- ADMIN
+-- -- =========================
+-- (
+--     'admin',
+--     'admin@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'ADMIN',
+--     NULL,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- -- =========================
+-- -- MANAGERS
+-- -- =========================
+-- (
+--     'manager.it',
+--     'manager.it@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'MANAGER',
+--     1,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'manager.hr',
+--     'manager.hr@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'MANAGER',
+--     2,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'manager.fin',
+--     'manager.fin@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'MANAGER',
+--     3,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'manager.ops',
+--     'manager.ops@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'MANAGER',
+--     4,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- -- =========================
+-- -- IT EMPLOYEES
+-- -- =========================
+-- (
+--     'john.it',
+--     'john.it@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     1,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'alice.it',
+--     'alice.it@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     1,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'kevin.it',
+--     'kevin.it@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     1,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- -- =========================
+-- -- HR EMPLOYEES
+-- -- =========================
+-- (
+--     'sarah.hr',
+--     'sarah.hr@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     2,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'priya.hr',
+--     'priya.hr@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     2,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'rohan.hr',
+--     'rohan.hr@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     2,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- -- =========================
+-- -- FINANCE EMPLOYEES
+-- -- =========================
+-- (
+--     'amit.fin',
+--     'amit.fin@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     3,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'neha.fin',
+--     'neha.fin@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     3,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'vivek.fin',
+--     'vivek.fin@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     3,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- -- =========================
+-- -- OPERATIONS EMPLOYEES
+-- -- =========================
+-- (
+--     'raj.ops',
+--     'raj.ops@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     4,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'meera.ops',
+--     'meera.ops@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     4,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- ),
+--
+-- (
+--     'karan.ops',
+--     'karan.ops@ams.com',
+--     '$2a$10$suAZZA8v4t3sjN9VihjYD.7ykc5lIcG/QDBE1.44kspGPJhDsA68m',
+--     'EMPLOYEE',
+--     4,
+--     TRUE,
+--     NOW(),
+--     NOW()
+-- );
+--
+--
+-- INSERT INTO assets
+-- (asset_code, serial_number, name, category, status, purchase_date, description, is_active, created_at, updated_at)
+-- VALUES
+--     ('LAP-0001','SN-LAP-0001','Dell Latitude 5440','LAPTOP','AVAILABLE','2024-01-15','Developer laptop',1,NOW(),NOW()),
+--     ('LAP-0002','SN-LAP-0002','HP EliteBook 840 G9','LAPTOP','AVAILABLE','2024-02-08','Office productivity laptop',1,NOW(),NOW()),
+--     ('LAP-0003','SN-LAP-0003','Lenovo ThinkPad E14','LAPTOP','AVAILABLE','2024-02-20','Employee workstation',1,NOW(),NOW()),
+--     ('LAP-0004','SN-LAP-0004','Dell Inspiron 15','LAPTOP','AVAILABLE','2024-03-05','General purpose laptop',1,NOW(),NOW()),
+--     ('LAP-0005','SN-LAP-0005','MacBook Pro M2','LAPTOP','AVAILABLE','2024-03-18','Testing laptop',1,NOW(),NOW()),
+--     ('LAP-0006','SN-LAP-0006','ASUS ExpertBook B1','LAPTOP','AVAILABLE','2024-04-01','Finance laptop',1,NOW(),NOW()),
+--     ('LAP-0007','SN-LAP-0007','Acer Aspire 7','LAPTOP','AVAILABLE','2024-04-22','Engineering laptop',1,NOW(),NOW()),
+--     ('LAP-0008','SN-LAP-0008','Lenovo ThinkBook 15','LAPTOP','AVAILABLE','2024-05-10','HR laptop',1,NOW(),NOW()),
+--     ('LAP-0009','SN-LAP-0009','HP ProBook 450','LAPTOP','AVAILABLE','2024-05-28','Business laptop',1,NOW(),NOW()),
+--     ('LAP-0010','SN-LAP-0010','Dell Latitude 7420','LAPTOP','AVAILABLE','2024-06-15','Senior developer laptop',1,NOW(),NOW()),
+--
+--     ('MON-0011','SN-MON-0001','Dell P2422H','MONITOR','AVAILABLE','2023-10-12','24-inch monitor',1,NOW(),NOW()),
+--     ('MON-0012','SN-MON-0002','LG UltraFine 24','MONITOR','AVAILABLE','2023-11-05','IPS monitor',1,NOW(),NOW()),
+--     ('MON-0013','SN-MON-0003','Samsung S24R350','MONITOR','AVAILABLE','2023-11-20','Office monitor',1,NOW(),NOW()),
+--     ('MON-0014','SN-MON-0004','BenQ GW2480','MONITOR','AVAILABLE','2024-01-08','Conference monitor',1,NOW(),NOW()),
+--     ('MON-0015','SN-MON-0005','Acer KA242Y','MONITOR','AVAILABLE','2024-02-14','Spare monitor',1,NOW(),NOW()),
+--
+--     ('PRN-0016','SN-PRN-0001','HP LaserJet Pro M404dn','PRINTER','AVAILABLE','2023-06-12','Laser printer',1,NOW(),NOW()),
+--     ('PRN-0017','SN-PRN-0002','Canon ImageClass MF3010','PRINTER','AVAILABLE','2023-08-25','Multifunction printer',1,NOW(),NOW()),
+--     ('PRN-0018','SN-PRN-0003','Brother HL-L2350DW','PRINTER','AVAILABLE','2024-01-18','Wireless printer',1,NOW(),NOW()),
+--
+--     ('PROJ-0019','SN-PRO-0001','Epson EB-X49','PROJECTOR','AVAILABLE','2023-03-10','Training room projector',1,NOW(),NOW()),
+--     ('PROJ-0020','SN-PRO-0002','BenQ MX560','PROJECTOR','AVAILABLE','2023-07-21','Conference projector',1,NOW(),NOW()),
+--     ('PROJ-0021','SN-PRO-0003','ViewSonic PA503S','PROJECTOR','AVAILABLE','2024-02-05','Meeting room projector',1,NOW(),NOW()),
+--
+--     ('KEY-0022','SN-KBD-0001','Logitech K120','KEYBOARD','AVAILABLE','2024-01-15','USB keyboard',1,NOW(),NOW()),
+--     ('KEY-0023','SN-KBD-0002','Dell KB216','KEYBOARD','AVAILABLE','2024-01-29','Office keyboard',1,NOW(),NOW()),
+--     ('KEY-0024','SN-KBD-0003','HP 320K','KEYBOARD','AVAILABLE','2024-02-11','Wired keyboard',1,NOW(),NOW()),
+--     ('KEY-0025','SN-KBD-0004','Lenovo Preferred Pro II','KEYBOARD','AVAILABLE','2024-03-03','Business keyboard',1,NOW(),NOW()),
+--
+--     ('MOU-0026','SN-MOU-0001','Logitech M185','MOUSE','AVAILABLE','2024-01-20','Wireless mouse',1,NOW(),NOW()),
+--     ('MOU-0027','SN-MOU-0002','Dell MS116','MOUSE','AVAILABLE','2024-02-02','Optical mouse',1,NOW(),NOW()),
+--     ('MOU-0028','SN-MOU-0003','HP X500','MOUSE','AVAILABLE','2024-02-18','USB mouse',1,NOW(),NOW()),
+--     ('MOU-0029','SN-MOU-0004','Lenovo 300 Wireless','MOUSE','AVAILABLE','2024-03-12','Wireless office mouse',1,NOW(),NOW()),
+--     ('MOU-0030','SN-MOU-0005','Logitech MX Master 3S','MOUSE','AVAILABLE','2024-04-08','Premium productivity mouse',1,NOW(),NOW());
+--
+-- START TRANSACTION;
+--
+-- INSERT INTO asset_assignments
+-- (asset_id, user_id, assigned_by, assigned_date, returned_date, status, is_active, created_at, updated_at)
+-- VALUES
+--     (1,6,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (2,7,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (3,8,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (4,9,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (5,10,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (6,11,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (7,12,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (8,13,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (9,14,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (10,15,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (11,16,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW()),
+--     (12,17,1,NOW(),NULL,'ACTIVE',TRUE,NOW(),NOW());
+--
+-- UPDATE assets
+-- SET
+--     status = 'ASSIGNED',
+--     updated_at = NOW()
+-- WHERE id IN (1,2,3,4,5,6,7,8,9,10,11,12);
+--
+-- COMMIT;
+--
+--
+-- START TRANSACTION;
+--
+-- INSERT INTO maintenance_requests
+-- (asset_id, user_id, approved_by, description, status, approved_at, resolved_at, is_active, created_at, updated_at)
+-- VALUES
+--
+-- -- IT
+-- (1, 6, NULL,
+--  'Laptop battery drains unusually fast.',
+--  'PENDING',
+--  NULL,
+--  NULL,
+--  TRUE, NOW(), NOW()),
+--
+-- (2, 7, NULL,
+--  'Keyboard keys occasionally stop responding.',
+--  'PENDING',
+--  NULL,
+--  NULL,
+--  TRUE, NOW(), NOW()),
+--
+-- (3, 8, 2,
+--  'Laptop overheating during development.',
+--  'IN_PROGRESS',
+--  NOW(),
+--  NULL,
+--  TRUE, NOW(), NOW()),
+--
+-- -- HR
+-- (4, 9, 3,
+--  'Monitor flickers intermittently.',
+--  'IN_PROGRESS',
+--  NOW(),
+--  NULL,
+--  TRUE, NOW(), NOW()),
+--
+-- (5, 10, 3,
+--  'Printer not detecting paper properly.',
+--  'RESOLVED',
+--  NOW(),
+--  NOW(),
+--  TRUE, NOW(), NOW()),
+--
+-- (6, 11, 3,
+--  'Projector image alignment issue.',
+--  'RESOLVED',
+--  NOW(),
+--  NOW(),
+--  TRUE, NOW(), NOW()),
+--
+-- -- Finance
+-- (7, 12, 4,
+--  'Mouse occasionally disconnects.',
+--  'REJECTED',
+--  NOW(),
+--  NULL,
+--  TRUE, NOW(), NOW()),
+--
+-- -- Operations
+-- (8, 13, 5,
+--  'Laptop fan making loud noise.',
+--  'REJECTED',
+--  NOW(),
+--  NULL,
+--  TRUE, NOW(), NOW());
+--
+-- UPDATE assets
+-- SET status='MAINTENANCE'
+-- WHERE id IN (3, 4);
+--
+-- UPDATE assets
+-- SET status='ASSIGNED'
+-- WHERE id IN (1, 2, 5, 6, 7, 8);
+--
+-- COMMIT;
+--
+--
+--
+-- -- Run below command in mysql terminal to run this script
+-- -- SOURCE /Users/0863s02038shyam/Desktop/PLAY_proj/AMS/ams_server/app/scripts/demo_seed.sql
